@@ -6,14 +6,14 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://automektep.vercel.a
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'AutoMektep — Алматыдағы автомектеп: A, B, C санаттары',
+    default: 'AutoMektep — Алматыдағы автомектеп: A, B, BE, C санаттары',
     template: '%s — AutoMektep',
   },
   description:
     'AutoMektep — Алматыдағы автомектеп. Теория, практика және емтиханға дайындық бір жерде: бағалар, нұсқаушылар, оқу көліктері, онлайн тесттер және оқушының жеке кабинеті.',
   keywords: [
-    'автомектеп', 'Алматы', 'жүргізуші куәлігі', 'автошкола', 'B санаты', 'A санаты',
-    'C санаты', 'теория', 'практика', 'емтихан', 'AutoMektep',
+    'автомектеп', 'Алматы', 'жүргізуші куәлігі', 'автошкола', 'A санаты', 'B санаты',
+    'BE санаты', 'C санаты', 'теория', 'практика', 'емтихан', 'AutoMektep',
   ],
   applicationName: 'AutoMektep',
   authors: [{ name: 'AutoMektep' }],
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: 'AutoMektep',
     title: 'AutoMektep — автомектепті басқару жүйесі',
     description:
-      'Теория, практика, емтихандар және төлемдер — оқушының жеке кабинетінде. A–D санаттары, нұсқаушылар, оқу көліктері және бағалар.',
+      'Теория, практика, емтихандар және төлемдер — оқушының жеке кабинетінде. A, B, BE және C санаттары, нұсқаушылар, оқу көліктері және бағалар.',
     images: [{ url: '/og.svg', width: 1200, height: 630, alt: 'AutoMektep автомектебі' }],
   },
   twitter: {
@@ -68,12 +68,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               name: 'AutoMektep',
               alternateName: 'AutoMektep автомектебі',
               description:
-                'Алматыдағы автомектеп: A, B, C және басқа санаттар бойынша теория мен практика, онлайн тесттер, оқушының жеке кабинеті.',
+                'Алматыдағы автомектеп: A, B, BE және C санаттары бойынша теория мен практика, онлайн тесттер, оқушының жеке кабинеті.',
               url: siteUrl,
               image: `${siteUrl}/og.svg`,
               logo: `${siteUrl}/favicon.svg`,
               telephone: '+77078985244',
-              priceRange: '35 000 ₸ – 95 000 ₸',
+              priceRange: '45 000 ₸ – 70 000 ₸',
               address: {
                 '@type': 'PostalAddress',
                 addressLocality: 'Алматы',

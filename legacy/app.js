@@ -11,10 +11,10 @@
 // =====================================================================
 // 1. АНЫҚТАМАЛЫҚТАР (константалар)
 // =====================================================================
-const STORAGE_KEY = 'automektep-data-v4';
+const STORAGE_KEY = 'automektep-data-v5';
 const SESSION_KEY = 'automektep-session';
 const THEME_KEY = 'automektep-theme';
-const CATEGORIES = ['A1', 'A', 'B1', 'B', 'BE', 'C1', 'C', 'C1E', 'CE', 'D1', 'D', 'D1E', 'DE', 'Tm', 'Tb'];
+const CATEGORIES = ['A', 'B', 'BE', 'C'];
 const STATUSES = ['Теория', 'Практика', 'Емтихан', 'Бітірді'];
 const STATUS_CLASS = { 'Теория': 's-theory', 'Практика': 's-practice', 'Емтихан': 's-exam', 'Бітірді': 's-done' };
 const STATUS_COLOR = { 'Теория': 'var(--primary)', 'Практика': 'var(--yellow)', 'Емтихан': 'var(--purple)', 'Бітірді': 'var(--green)' };
@@ -40,8 +40,8 @@ const MONTHS_SHORT = ['Қаң', 'Ақп', 'Нау', 'Сәу', 'Мам', 'Мау'
 const WEEKDAYS = ['Жексенбі', 'Дүйсенбі', 'Сейсенбі', 'Сәрсенбі', 'Бейсенбі', 'Жұма', 'Сенбі'];
 const DEFAULT_SETTINGS = {
   schoolName: 'AutoMektep', city: 'Алматы', phone: '+7 707 898 52 44',
-  prices: { A1: 40000, A: 45000, B1: 50000, B: 55000, BE: 60000, C1: 65000, C: 70000, C1E: 72000, CE: 80000, D1: 75000, D: 85000, D1E: 88000, DE: 95000, Tm: 35000, Tb: 60000 },
-  practiceRequired: { A1: 10, A: 10, B1: 14, B: 16, BE: 10, C1: 16, C: 20, C1E: 10, CE: 12, D1: 16, D: 20, D1E: 10, DE: 12, Tm: 8, Tb: 20 },
+  prices: { A: 45000, B: 55000, BE: 60000, C: 70000 },
+  practiceRequired: { A: 10, B: 16, BE: 10, C: 20 },
   goals: { revenue: 4000000, profit: 2000000, students: 30 },
 };
 const NAV = [
@@ -147,6 +147,14 @@ function defaultTheory() {
     { id: 't3', order: 3, title: '3-сабақ. Жаяу жүргіншілер мен жолаушылардың міндеттері', youtube: '102BNJQG5X4', desc: 'Жаяу жүргіншілер мен жолаушылар үшін ережелер. Видеокурс орыс тілінде.' },
     { id: 't4', order: 4, title: '4-сабақ. Ескерту белгілері', youtube: 'mrVCt6ELR5Q', desc: 'Ескерту белгілерінің түрлері және оларды жолда қалай қолдану керегі. Видеокурс орыс тілінде.' },
     { id: 't5', order: 5, title: 'Қосымша сабақ. Жол белгілері (қазақ тілінде)', youtube: 'AEcoIBJb3EU', desc: 'Жол белгілеріне шолу және жүргізуші куәлігін алу сынағына дайындық, қазақ тілінде.' },
+    { id: 't6', order: 6, title: '6-сабақ. Жол разметкасы', youtube: 'UdJRFvu3t7w', desc: 'Көлденең және бойлық разметка түрлері, олардың мағынасы және қозғалыс кезінде қалай оқылатыны. Видеокурс орыс тілінде.' },
+    { id: 't7', order: 7, title: '7-сабақ. Басымдық белгілері', youtube: 'skzb9VWuoRg', desc: '«Басты жол», «Жол беріңіз» және басқа да басымдық белгілері. Қиылыстардан дұрыс өту тәртібі. Видеокурс орыс тілінде.' },
+    { id: 't8', order: 8, title: '8-сабақ. Тыйым салу белгілері', youtube: 'm3fH0rxvThc', desc: 'Тыйым салу және шектеу белгілері: қозғалысқа, жылдамдыққа, тұраққа қатысты талаптар. Видеокурс орыс тілінде.' },
+    { id: 't9', order: 9, title: '9-сабақ. Қиылыстардан өту', youtube: '8CEXdTSdSfk', desc: 'Реттелген және реттелмейтін қиылыстар, басты жол және «оң жақтағы кедергі» ережесі. Видеокурс орыс тілінде.' },
+    { id: 't10', order: 10, title: '10-сабақ. Айналмалы қозғалыс', youtube: '6GARgnohc3s', desc: 'Айналмалы қиылысқа кіру және шығу тәртібі, жолақ таңдау және басымдық беру. Видеокурс орыс тілінде.' },
+    { id: 't11', order: 11, title: '11-сабақ. Жол-көлік оқиғасы кезіндегі бірінші көмек', youtube: 'TkVbXyVSGek', desc: 'Апат орнында қауіпсіздікті қамтамасыз ету, жедел жәрдем шақыру және алғашқы көмек көрсету тәртібі. Видеокурс орыс тілінде.' },
+    { id: 't12', order: 12, title: '12-сабақ. Ескерту белгілеріне шолу (2025)', youtube: 'zDL6WD96mRo', desc: 'Ескерту белгілерінің жаңартылған шолуы және емтихан сұрақтарындағы практикалық мысалдар. Видеокурс орыс тілінде.' },
+    { id: 't13', order: 13, title: 'Қосымша сабақ. Жол ережелері курсы — кіріспе (қазақ тілінде)', youtube: '20Qpd1g1fso', desc: 'Жол қозғалысы ережелерін үйренуді бастауға арналған кіріспе сабақ, қазақ тілінде.' },
   ];
 }
 const ytId = (s) => {
@@ -172,27 +180,31 @@ function demoAccounts() {
 
 function seed() {
   const db0 = emptyDB();
+  // Автопарк: тек 5 оқу көлігі (A, B, BE, C санаттары)
   db0.cars = [
     { id: 'c1', model: 'Toyota Corolla', plate: '123 ABC 02', category: 'B', year: 2021, mileage: 84200, inspection: addDays(120), insurance: addDays(18), status: 'Жұмыста' },
-    { id: 'c2', model: 'Hyundai Accent', plate: '456 KZA 02', category: 'B', year: 2022, mileage: 61500, inspection: addDays(200), insurance: addDays(240), status: 'Жұмыста' },
-    { id: 'c3', model: 'Honda CB500', plate: '78 AB 02', category: 'A', year: 2020, mileage: 23400, inspection: addDays(-3), insurance: addDays(90), status: 'Жұмыста' },
-    { id: 'c4', model: 'КамАЗ 65115', plate: '901 TRK 02', category: 'C', year: 2019, mileage: 152000, inspection: addDays(45), insurance: addDays(150), status: 'Жұмыста' },
-    { id: 'c5', model: 'Kia Rio', plate: '234 RIO 02', category: 'B', year: 2018, mileage: 198000, inspection: addDays(60), insurance: addDays(70), status: 'Жөндеуде' },
+    { id: 'c9', model: 'Kawasaki Ninja 400', plate: '55 AD 02', category: 'A', year: 2022, mileage: 9800, inspection: addDays(210), insurance: addDays(190), status: 'Жұмыста' },
+    { id: 'c8', model: 'КамАЗ 4308', plate: '321 EFA 02', category: 'C', year: 2019, mileage: 132000, inspection: addDays(90), insurance: addDays(120), status: 'Жұмыста' },
+    { id: 'c18', model: 'Toyota Camry + тіркеме', plate: '812 CAM 02', category: 'BE', year: 2021, mileage: 54200, inspection: addDays(160), insurance: addDays(200), status: 'Жұмыста' },
+    { id: 'c24', model: 'Lada Granta', plate: '606 LDA 02', category: 'B', year: 2021, mileage: 73000, inspection: addDays(100), insurance: addDays(60), status: 'Жұмыста' },
   ];
+  // Нұсқаушылар: 5 адам, әрқайсысы автопарктегі көлікке бекітілген
   db0.instructors = [
     { id: 'i1', name: 'Ерлан Сапаров', phone: '+7 700 000 00 11', categories: ['B'], carIds: ['c1'], experience: 12 },
-    { id: 'i2', name: 'Айгүл Нұрланова', phone: '+7 700 000 00 12', categories: ['A', 'B'], carIds: ['c2', 'c3'], experience: 8 },
-    { id: 'i3', name: 'Марат Жұмабеков', phone: '+7 700 000 00 13', categories: ['B', 'C'], carIds: ['c4'], experience: 15 },
+    { id: 'i2', name: 'Айгүл Нұрланова', phone: '+7 700 000 00 12', categories: ['A'], carIds: ['c9'], experience: 8 },
+    { id: 'i3', name: 'Марат Жұмабеков', phone: '+7 700 000 00 13', categories: ['B'], carIds: ['c24'], experience: 15 },
+    { id: 'i4', name: 'Динара Омарова', phone: '+7 700 000 00 15', categories: ['BE'], carIds: ['c18'], experience: 9 },
+    { id: 'i5', name: 'Серік Бекетов', phone: '+7 700 000 00 16', categories: ['C'], carIds: ['c8'], experience: 18 },
   ];
+  // Оқушылар: 5 адам, оның ішінде демо аккаунт — Әлия Серікқызы (s1)
   db0.students = [
     { id: 's1', name: 'Әлия Серікқызы', phone: '+7 700 000 01 01', category: 'B', instructorId: 'i1', status: 'Практика', startDate: addDays(-40), discount: 0, note: '' },
-    { id: 's2', name: 'Данияр Қасымов', phone: '+7 700 000 01 02', category: 'B', instructorId: 'i2', status: 'Теория', startDate: addDays(-12), discount: 0, note: 'Кешкі топқа ыңғайлы' },
-    { id: 's3', name: 'Нұржан Әбілов', phone: '+7 700 000 01 03', category: 'C', instructorId: 'i3', status: 'Емтихан', startDate: addDays(-70), discount: 0, note: '' },
-    { id: 's4', name: 'Мадина Төлеген', phone: '+7 700 000 01 04', category: 'B', instructorId: 'i1', status: 'Бітірді', startDate: addDays(-95), discount: 0, note: '' },
+    { id: 's2', name: 'Данияр Қасымов', phone: '+7 700 000 01 02', category: 'B', instructorId: 'i3', status: 'Теория', startDate: addDays(-12), discount: 0, note: 'Кешкі топқа ыңғайлы' },
+    { id: 's3', name: 'Нұржан Әбілов', phone: '+7 700 000 01 03', category: 'C', instructorId: 'i5', status: 'Емтихан', startDate: addDays(-70), discount: 0, note: '' },
+    { id: 's4', name: 'Мадина Төлеген', phone: '+7 700 000 01 04', category: 'BE', instructorId: 'i4', status: 'Бітірді', startDate: addDays(-95), discount: 0, note: '' },
     { id: 's5', name: 'Ерасыл Бекұлы', phone: '+7 700 000 01 05', category: 'A', instructorId: 'i2', status: 'Практика', startDate: addDays(-25), discount: 0, note: '' },
-    { id: 's6', name: 'Аружан Маратқызы', phone: '+7 700 000 01 06', category: 'B', instructorId: 'i3', status: 'Теория', startDate: addDays(-5), discount: 10, note: 'Студенттік жеңілдік' },
   ];
-  // Өткен сабақтар (автоматты түрде құрылады)
+  // Өткен және алдағы сабақтар
   let n = 0;
   const past = (studentId, instructorId, carId, count, time, type, startOffset) => {
     for (let k = 0; k < count; k++) {
@@ -200,33 +212,30 @@ function seed() {
     }
   };
   past('s1', 'i1', 'c1', 8, '09:00', 'Практика', 3);
-  past('s4', 'i1', 'c1', 16, '12:00', 'Практика', 20);
-  past('s3', 'i3', 'c4', 20, '14:00', 'Практика', 8);
-  past('s5', 'i2', 'c3', 4, '10:30', 'Практика', 3);
-  past('s2', 'i2', '', 3, '17:00', 'Теория', 4);
-  // Алдағы сабақтар
+  past('s4', 'i4', 'c18', 10, '12:00', 'Практика', 20);
+  past('s3', 'i5', 'c8', 20, '14:00', 'Практика', 8);
+  past('s5', 'i2', 'c9', 4, '10:30', 'Практика', 3);
+  past('s2', 'i3', '', 3, '17:00', 'Теория', 4);
   const next = [
     ['s1', 'i1', 'c1', 0, '09:00', 'Практика', true],
-    ['s5', 'i2', 'c3', 0, '12:00', 'Практика', false],
-    ['s2', 'i2', '', 0, '17:00', 'Теория', false],
-    ['s6', 'i3', '', 1, '10:30', 'Теория', false],
+    ['s5', 'i2', 'c9', 0, '12:00', 'Практика', false],
+    ['s2', 'i3', '', 0, '17:00', 'Теория', false],
     ['s1', 'i1', 'c1', 2, '14:00', 'Практика', false],
-    ['s3', 'i3', 'c4', 3, '09:00', 'Практика', false],
-    ['s5', 'i2', 'c3', 4, '15:30', 'Практика', false],
-    ['s2', 'i2', '', -1, '18:30', 'Теория', false],
+    ['s3', 'i5', 'c8', 3, '09:00', 'Практика', false],
+    ['s5', 'i2', 'c9', 4, '15:30', 'Практика', false],
   ];
   next.forEach(([studentId, instructorId, carId, off, time, type, done]) => {
     db0.lessons.push({ id: 'l' + (++n), studentId, instructorId, carId, date: addDays(off), time, type, done, note: '' });
   });
+  // Төлемдер (барлық сомалар санат бағасына сәйкес)
   db0.payments = [
-    { id: 'p1', studentId: 's1', amount: 100000, date: addDays(-40), method: 'Kaspi' },
-    { id: 'p2', studentId: 's1', amount: 50000, date: addDays(-3), method: 'Kaspi' },
-    { id: 'p3', studentId: 's2', amount: 60000, date: addDays(-12), method: 'Қолма-қол' },
-    { id: 'p4', studentId: 's3', amount: 120000, date: addDays(-70), method: 'Банк картасы' },
-    { id: 'p5', studentId: 's3', amount: 100000, date: addDays(-38), method: 'Kaspi' },
-    { id: 'p6', studentId: 's4', amount: 180000, date: addDays(-95), method: 'Kaspi' },
-    { id: 'p7', studentId: 's5', amount: 60000, date: addDays(-1), method: 'Kaspi' },
-    { id: 'p8', studentId: 's6', amount: 50000, date: addDays(-5), method: 'Қолма-қол' },
+    { id: 'p1', studentId: 's1', amount: 30000, date: addDays(-40), method: 'Kaspi' },
+    { id: 'p2', studentId: 's1', amount: 25000, date: addDays(-3), method: 'Kaspi' },
+    { id: 'p3', studentId: 's2', amount: 30000, date: addDays(-12), method: 'Қолма-қол' },
+    { id: 'p4', studentId: 's3', amount: 40000, date: addDays(-70), method: 'Банк картасы' },
+    { id: 'p5', studentId: 's3', amount: 30000, date: addDays(-38), method: 'Kaspi' },
+    { id: 'p6', studentId: 's4', amount: 60000, date: addDays(-95), method: 'Kaspi' },
+    { id: 'p7', studentId: 's5', amount: 45000, date: addDays(-1), method: 'Kaspi' },
   ];
   db0.exams = [
     { id: 'e1', studentId: 's4', type: EXAM.stateTheory, date: addDays(-20), result: 'Өтті' },
@@ -241,111 +250,8 @@ function seed() {
     { id: 'd2', name: 'Тимур Оспанов', phone: '+7 700 000 02 02', category: 'B', source: '2GIS', date: addDays(-2), status: 'Жаңа', note: '' },
     { id: 'd3', name: 'Гүлнұр Әлібек', phone: '+7 700 000 02 03', category: 'A', source: 'Сайт', date: addDays(-4), status: 'Хабарласты', note: 'Бағасын сұрады, қайта хабарласу' },
     { id: 'd4', name: 'Бауыржан Ержанов', phone: '+7 700 000 02 04', category: 'C', source: 'Таныс арқылы', date: addDays(-9), status: 'Бас тартты', note: 'Басқа қалаға көшті' },
-    { id: 'd5', name: 'Аружан Маратқызы', phone: '+7 700 000 01 06', category: 'B', source: 'Instagram', date: addDays(-6), status: 'Тіркелді', note: '' },
+    { id: 'd5', name: 'Аружан Маратқызы', phone: '+7 700 000 02 05', category: 'BE', source: 'Instagram', date: addDays(-6), status: 'Тіркелді', note: '' },
   ];
-  // Жыл басынан бері оқуды бітірген оқушылар (тарих: төлемдер, сабақтар, емтихандар)
-  const grads = [
-    ['Айдос Нұрланұлы', 'B', 'i1', 'c1', -300, '09:00'],
-    ['Жанерке Болатқызы', 'B', 'i2', 'c2', -280, '10:30'],
-    ['Ерлан Мұхтарұлы', 'C', 'i3', 'c4', -260, '12:00'],
-    ['Дана Серікова', 'B', 'i1', 'c1', -230, '14:00'],
-    ['Арман Төлеуов', 'A', 'i2', 'c3', -210, '15:30'],
-    ['Мөлдір Ахметова', 'B', 'i2', 'c2', -190, '17:00'],
-    ['Бекзат Жақсылықов', 'B', 'i1', 'c1', -160, '10:30'],
-    ['Камила Әділова', 'B', 'i2', 'c2', -130, '12:00'],
-  ];
-  grads.forEach(([name, category, instructorId, carId, off, time], k) => {
-    const id = 'g' + (k + 1);
-    const price = DEFAULT_SETTINGS.prices[category];
-    const req = DEFAULT_SETTINGS.practiceRequired[category];
-    db0.students.push({ id, name, phone: `+7 700 000 03 ${pad(k + 1)}`, category, instructorId, status: 'Бітірді', startDate: addDays(off), discount: 0, note: '' });
-    db0.payments.push({ id: `pg${k}a`, studentId: id, amount: price / 2, date: addDays(off), method: k % 2 ? 'Қолма-қол' : 'Kaspi' });
-    db0.payments.push({ id: `pg${k}b`, studentId: id, amount: price / 2, date: addDays(off + 35), method: 'Kaspi' });
-    for (let j = 0; j < req; j++) {
-      db0.lessons.push({ id: 'l' + (++n), studentId: id, instructorId, carId, date: addDays(off + 20 + 2 * j), time, type: 'Практика', done: true, note: '' });
-    }
-    const after = off + 20 + 2 * req;
-    [[EXAM.innerTheory, off + 25], [EXAM.innerPractice, after + 2], [EXAM.stateTheory, after + 7], [EXAM.statePractice, after + 12]]
-      .forEach(([type, d], m) => db0.exams.push({ id: `eg${k}${m}`, studentId: id, type, date: addDays(d), result: 'Өтті' }));
-  });
-
-  // ---- Қосымша: нұсқаушылар, көліктер, оқушылар ----
-  db0.instructors.push(
-    { id: 'i4', name: 'Руслан Қайратұлы', phone: '+7 700 000 00 14', categories: ['A1', 'A', 'B'], carIds: ['c5', 'c9', 'c22'], experience: 6 },
-    { id: 'i5', name: 'Динара Омарова', phone: '+7 700 000 00 15', categories: ['B', 'B1', 'BE'], carIds: ['c6', 'c7', 'c18'], experience: 9 },
-    { id: 'i6', name: 'Серік Бекетов', phone: '+7 700 000 00 16', categories: ['C', 'C1', 'CE', 'C1E'], carIds: ['c8', 'c10', 'c13', 'c14'], experience: 18 },
-    { id: 'i7', name: 'Асхат Тұрсынов', phone: '+7 700 000 00 17', categories: ['D', 'D1', 'DE', 'D1E'], carIds: ['c11', 'c15', 'c16', 'c17'], experience: 14 },
-    { id: 'i9', name: 'Тимур Серіков', phone: '+7 700 000 00 19', categories: ['B1', 'D1', 'Tb'], carIds: ['c19', 'c20'], experience: 11 },
-    { id: 'i10', name: 'Бауыржан Әлиев', phone: '+7 700 000 00 20', categories: ['A', 'A1', 'C'], carIds: ['c21'], experience: 10 },
-    { id: 'i8', name: 'Гүлмира Ахметова', phone: '+7 700 000 00 18', categories: ['B', 'Tm'], carIds: ['c12', 'c23', 'c24'], experience: 7 },
-  );
-  db0.cars.push(
-    { id: 'c5', model: 'Yamaha YBR125', plate: '91 AC 02', category: 'A1', year: 2021, mileage: 15200, inspection: addDays(150), insurance: addDays(100), status: 'Жұмыста' },
-    { id: 'c6', model: 'Kia Rio', plate: '234 BKA 02', category: 'B', year: 2022, mileage: 47800, inspection: addDays(180), insurance: addDays(210), status: 'Жұмыста' },
-    { id: 'c7', model: 'Chevrolet Nexia 3', plate: '567 CDA 02', category: 'B', year: 2020, mileage: 92100, inspection: addDays(60), insurance: addDays(25), status: 'Жұмыста' },
-    { id: 'c8', model: 'КамАЗ 4308', plate: '321 EFA 02', category: 'C', year: 2019, mileage: 132000, inspection: addDays(90), insurance: addDays(120), status: 'Жұмыста' },
-    { id: 'c9', model: 'Kawasaki Ninja 400', plate: '55 AD 02', category: 'A', year: 2022, mileage: 9800, inspection: addDays(210), insurance: addDays(190), status: 'Жұмыста' },
-    { id: 'c10', model: 'Hyundai Porter', plate: '654 GHA 02', category: 'C1', year: 2021, mileage: 68300, inspection: addDays(140), insurance: addDays(160), status: 'Жұмыста' },
-    { id: 'c11', model: 'Yutong ZK6122 (автобус)', plate: '987 KLA 02', category: 'D', year: 2018, mileage: 210500, inspection: addDays(45), insurance: addDays(70), status: 'Жұмыста' },
-    { id: 'c13', model: 'КамАЗ 5460 тартқыш + жартылай тіркеме', plate: '777 FRA 02', category: 'CE', year: 2020, mileage: 118000, inspection: addDays(95), insurance: addDays(130), status: 'Жұмыста' },
-    { id: 'c14', model: 'Isuzu NQR + тіркеме', plate: '445 TRA 02', category: 'C1E', year: 2019, mileage: 99500, inspection: addDays(110), insurance: addDays(150), status: 'Жұмыста' },
-    { id: 'c15', model: 'Mercedes-Benz Sprinter (шағын автобус)', plate: '318 SPR 02', category: 'D1', year: 2021, mileage: 87400, inspection: addDays(130), insurance: addDays(175), status: 'Жұмыста' },
-    { id: 'c16', model: 'Sprinter + тіркеме', plate: '319 SPR 02', category: 'D1E', year: 2020, mileage: 96000, inspection: addDays(70), insurance: addDays(90), status: 'Жұмыста' },
-    { id: 'c17', model: 'Higer KLQ6129 (автобус) + тіркеме', plate: '620 BUS 02', category: 'DE', year: 2019, mileage: 176000, inspection: addDays(85), insurance: addDays(100), status: 'Жұмыста' },
-    { id: 'c18', model: 'Toyota Camry + тіркеме', plate: '812 CAM 02', category: 'BE', year: 2021, mileage: 54200, inspection: addDays(160), insurance: addDays(200), status: 'Жұмыста' },
-    { id: 'c19', model: 'Polaris Sportsman (квадроцикл)', plate: '14 QD 02', category: 'B1', year: 2022, mileage: 6100, inspection: addDays(220), insurance: addDays(210), status: 'Жұмыста' },
-    { id: 'c20', model: 'ТролЗа-5264 (троллейбус)', plate: '03 TB 02', category: 'Tb', year: 2016, mileage: 143000, inspection: addDays(55), insurance: addDays(95), status: 'Жұмыста' },
-    { id: 'c21', model: 'Honda CBR250 (мотоцикл)', plate: '66 AE 02', category: 'A', year: 2021, mileage: 12900, inspection: addDays(170), insurance: addDays(140), status: 'Жұмыста' },
-    { id: 'c22', model: 'Suzuki GN125 (жеңіл мотоцикл)', plate: '67 AE 02', category: 'A1', year: 2020, mileage: 18700, inspection: addDays(120), insurance: addDays(115), status: 'Жұмыста' },
-    { id: 'c23', model: 'Toyota Corolla', plate: '505 COR 02', category: 'B', year: 2023, mileage: 21000, inspection: addDays(300), insurance: addDays(280), status: 'Жұмыста' },
-    { id: 'c24', model: 'Lada Granta', plate: '606 LDA 02', category: 'B', year: 2021, mileage: 73000, inspection: addDays(100), insurance: addDays(60), status: 'Жұмыста' },
-    { id: 'c12', model: 'МТЗ-82 (трактор)', plate: '12 TM 02', category: 'Tm', year: 2017, mileage: 4200, inspection: addDays(-8), insurance: addDays(80), status: 'Жөндеуде' },
-  );
-  const extra = [
-    ['Асылбек Мақсатұлы', 'B', 'i5', 'Практика', -30, 0.7], ['Томирис Нұрболқызы', 'A', 'i4', 'Практика', -22, 0.5],
-    ['Бексұлтан Қалиев', 'C', 'i6', 'Практика', -45, 1], ['Зарина Оразбаева', 'B', 'i8', 'Теория', -9, 0.5],
-    ['Дәурен Сейітов', 'D', 'i7', 'Практика', -50, 0.8], ['Ұлжан Абдрахманова', 'B1', 'i5', 'Теория', -4, 0.3],
-    ['Рамазан Ибраев', 'CE', 'i6', 'Емтихан', -80, 1], ['Салтанат Жүнісова', 'B', 'i5', 'Практика', -18, 0.6],
-    ['Ержан Тілеуберді', 'Tm', 'i8', 'Теория', -7, 0.5], ['Айнұр Қасенова', 'BE', 'i5', 'Практика', -26, 0.6],
-  ];
-  extra.forEach(([name, category, instructorId, status, off, share], k) => {
-    const id = 's' + (7 + k);
-    const price = DEFAULT_SETTINGS.prices[category];
-    const carId = (db0.instructors.find((i) => i.id === instructorId).carIds || [])[0] || null;
-    db0.students.push({ id, name, phone: `+7 700 000 04 ${pad(k + 1)}`, category, instructorId, status, startDate: addDays(off), discount: 0, note: '' });
-    db0.payments.push({ id: `pe${k}`, studentId: id, amount: Math.round(price * share), date: addDays(off + 1), method: k % 2 ? 'Қолма-қол' : 'Kaspi' });
-    const done = status === 'Теория' ? 0 : Math.round(DEFAULT_SETTINGS.practiceRequired[category] * (status === 'Емтихан' ? 1 : 0.5));
-    for (let j = 0; j < done; j++) db0.lessons.push({ id: 'l' + (++n), studentId: id, instructorId, carId, date: addDays(off + 8 + 2 * j), time: ['09:00', '10:30', '12:00', '14:00'][j % 4], type: 'Практика', done: true, note: '' });
-  });
-  const grads2 = [['Нұрсұлтан Әлімов', 'D', 'i7', 'c11', -240], ['Гүлзира Мырзабек', 'C1', 'i6', 'c10', -200], ['Мирас Омаров', 'A', 'i4', 'c9', -170], ['Лаура Кенжебаева', 'B', 'i5', 'c6', -150], ['Санжар Бейсенов', 'CE', 'i6', 'c8', -120], ['Әсел Дүйсенова', 'B', 'i8', 'c12', -100]];
-  grads2.forEach(([name, category, instructorId, carId, off], k) => {
-    const id = 'h' + (k + 1);
-    const price = DEFAULT_SETTINGS.prices[category];
-    db0.students.push({ id, name, phone: `+7 700 000 05 ${pad(k + 1)}`, category, instructorId, status: 'Бітірді', startDate: addDays(off), discount: 0, note: '' });
-    db0.payments.push({ id: `ph${k}a`, studentId: id, amount: price / 2, date: addDays(off), method: 'Kaspi' }, { id: `ph${k}b`, studentId: id, amount: price / 2, date: addDays(off + 30), method: k % 2 ? 'Қолма-қол' : 'Kaspi' });
-    [[EXAM.innerTheory, off + 20], [EXAM.innerPractice, off + 45], [EXAM.stateTheory, off + 50], [EXAM.statePractice, off + 56]]
-      .forEach(([type, d], m) => db0.exams.push({ id: `eh${k}${m}`, studentId: id, type, date: addDays(d), result: 'Өтті' }));
-  });
-  // Жыл бойына таралған қосымша түлектер (табыс динамикасы үшін)
-  const fn = ['Айбек', 'Дина', 'Нұрлан', 'Томирис', 'Ернар', 'Ляззат', 'Мадияр', 'Еркебұлан', 'Томирис', 'Аян', 'Сәуле', 'Қанат', 'Айым', 'Ғалым', 'Жансая', 'Бауыржан'];
-  const ln = ['Сатыбалдиев', 'Қарабаева', 'Омаров', 'Тұрарова', 'Есенов', 'Маратова', 'Қайыров', 'Серіков', 'Жақыпова', 'Мұратов', 'Әбдіқадыр', 'Нұрғалиев', 'Қасымова', 'Темірбеков', 'Ахметжанова', 'Дүйсенбаев'];
-  const pairs = [['B', 'i1'], ['B', 'i2'], ['A', 'i4'], ['B', 'i5'], ['C', 'i6'], ['B', 'i8'], ['D', 'i7'], ['B', 'i1']];
-  fn.forEach((name, k) => {
-    const [category, instructorId] = pairs[k % pairs.length];
-    const id = 'u' + (k + 1);
-    const off = -(20 + k * 18);
-    const price = DEFAULT_SETTINGS.prices[category];
-    db0.students.push({ id, name: `${name} ${ln[k]}`, phone: `+7 700 000 06 ${pad(k + 1)}`, category, instructorId, status: 'Бітірді', startDate: addDays(off - 60), discount: 0, note: '' });
-    db0.payments.push({ id: `pu${k}a`, studentId: id, amount: price / 2, date: addDays(off - 60), method: 'Kaspi' }, { id: `pu${k}b`, studentId: id, amount: price / 2, date: addDays(off), method: k % 2 ? 'Қолма-қол' : 'Kaspi' });
-  });
-  // Барлық оқушыға жеке кабинет (әкімші бәрінің теория/тест белсенділігін көреді)
-  db0.students.filter((st) => st.id !== 's1').forEach((st, k) => {
-    const done = st.status === 'Бітірді';
-    const w = done ? 5 : st.status === 'Теория' ? (k % 3) : 2 + (k % 4);
-    db0.accounts.push({ id: 'a' + st.id, email: `${st.id}@automektep.test`, pass: hashPass('Student2026!'), role: 'student', name: st.name, studentId: st.id, leadId: null,
-      watched: ['t1', 't2', 't3', 't4', 't5'].slice(0, Math.min(5, w)),
-      tests: st.status === 'Теория' && k % 2 ? [] : [1, 2].slice(0, 1 + (k % 2)).map((v, j) => ({ ts: Date.now() - (j + k % 5 + 1) * 86400e3, score: done ? 18 + (k % 3) : 11 + ((k * 3 + j * 2) % 8), total: 20, v: ((k + j) % 4) + 1 })) });
-  });
   // Шығындар: ағымдағы жылдың әр айы
   const year = Number(TODAY.slice(0, 4));
   const curMonth = Number(TODAY.slice(5, 7));
@@ -366,22 +272,24 @@ function seed() {
   }
 
   const now = Date.now();
-  // Әкімші мен оқушы арасындағы хабарламалар (Әлия — a2)
   db0.messages = [
     { id: 'm1', accountId: 'a2', from: 'admin', kind: 'system', text: 'AutoMektep жеке кабинетіне қош келдіңіз! Мұнда сабаққа жазылып, төлемдер мен емтихан нәтижелерін көре аласыз.', ts: now - 40 * 86400e3, read: true },
     { id: 'm2', accountId: 'a2', from: 'student', kind: 'text', text: 'Сәлеметсіз бе! Ішкі теория емтиханына қалай дайындалсам болады?', ts: now - 2 * 86400e3, read: true },
     { id: 'm3', accountId: 'a2', from: 'admin', kind: 'text', text: 'Сәлеметсіз бе, Әлия! Теория сабақтарындағы тест сұрақтарын қайталаңыз. Емтиханға дейін нұсқаушыңыз сынақ тест өткізеді.', ts: now - 2 * 86400e3 + 3600e3, read: true },
-    { id: 'm4', accountId: 'a2', from: 'student', kind: 'payment', text: 'Оқу ақысының қалдығын төледім', amount: 30000, method: 'Kaspi', status: 'pending', ts: now - 2 * 3600e3, read: false },
+    { id: 'm4', accountId: 'a2', from: 'student', kind: 'payment', text: 'Оқу ақысының қалдығын төледім', amount: 25000, method: 'Kaspi', status: 'pending', ts: now - 2 * 3600e3, read: false },
   ];
   db0.log = [
     { ts: now - 3600e3, text: 'Жаңа өтінім: Самал Ахметова (Instagram)' },
-    { ts: now - 86400e3, text: 'Төлем қабылданды: Ерасыл Бекұлы — 60 000 ₸' },
+    { ts: now - 86400e3, text: 'Төлем қабылданды: Ерасыл Бекұлы — 45 000 ₸' },
     { ts: now - 2 * 86400e3, text: 'Нұржан Әбілов «Мемлекеттік емтихан: теория» — Өтпеді' },
-    { ts: now - 3 * 86400e3, text: 'Төлем қабылданды: Әлия Серікқызы — 50 000 ₸' },
+    { ts: now - 3 * 86400e3, text: 'Төлем қабылданды: Әлия Серікқызы — 25 000 ₸' },
   ];
+  // Қалған оқушыларға да демо кабинет ашамыз (Әлия — a2, өзгеріссіз қалады)
+  db0.students.filter((st) => st.id !== 's1').forEach((st) => {
+    db0.accounts.push({ id: 'a' + st.id, email: `${st.id}@automektep.test`, pass: hashPass('Student2026!'), role: 'student', name: st.name, studentId: st.id, leadId: null, watched: [], tests: [] });
+  });
   return db0;
 }
-
 // =====================================================================
 // 4. САҚТАУ (localStorage)
 // =====================================================================
@@ -392,35 +300,20 @@ function normalize(d) {
   const s = d.settings || {};
   out.settings = {
     ...base.settings, ...s,
-    prices: { ...base.settings.prices, ...(s.prices || {}) },
-    practiceRequired: { ...base.settings.practiceRequired, ...(s.practiceRequired || {}) },
+    prices: Object.fromEntries(CATEGORIES.map((c) => [c, Number(s.prices?.[c]) || DEFAULT_SETTINGS.prices[c]])),
+    practiceRequired: Object.fromEntries(CATEGORIES.map((c) => [c, Number.isFinite(Number(s.practiceRequired?.[c])) ? Number(s.practiceRequired[c]) : DEFAULT_SETTINGS.practiceRequired[c]])),
     goals: { ...base.settings.goals, ...(s.goals || {}) },
   };
-  const op = out.settings.prices;
-  if (op.A === 120000 && op.B === 180000 && op.C === 220000) { out.settings.prices = { ...DEFAULT_SETTINGS.prices }; out.settings.practiceRequired = { ...DEFAULT_SETTINGS.practiceRequired }; }
   if (out.settings.phone === '+7 700 000 00 00') out.settings.phone = DEFAULT_SETTINGS.phone;
-  out.instructors.forEach((i) => { i.carIds = i.carIds || []; i.categories = i.categories || []; });
+  out.instructors.forEach((i) => {
+    i.carIds = i.carIds || [];
+    i.categories = (i.categories || []).filter((c) => CATEGORIES.includes(c));
+  });
   // Әкімші аккаунты әрқашан болуы керек (әйтпесе жүйеге кіру мүмкін емес)
   if (!out.accounts.some((a) => a.role === 'admin')) out.accounts.unshift(demoAccounts()[0]);
+  // Демо оқушы аккаунты (Әлия Серікқызы) әрқашан сақталады
+  if (!out.accounts.some((a) => a.id === 'a2' || a.email === 'aliya@automektep.test')) out.accounts.push(demoAccounts()[1]);
   if (!Array.isArray(d.theory)) out.theory = defaultTheory();
-  if (!out.extrasV2) {
-    out.extrasV2 = true;
-    try {
-      const fresh = seed();
-      ['instructors', 'cars', 'students', 'lessons', 'payments', 'exams', 'expenses'].forEach((k) => {
-        const have = new Set(out[k].map((x) => x.id));
-        fresh[k].forEach((x) => { if (!have.has(x.id)) out[k].push(x); });
-      });
-      out.instructors.forEach((i) => {
-        const f = fresh.instructors.find((x) => x.id === i.id);
-        if (f) f.carIds.forEach((c) => { if (!(i.carIds || []).includes(c)) i.carIds = [...(i.carIds || []), c]; });
-        if (f) f.categories.forEach((c) => { if (!(i.categories || []).includes(c)) i.categories = [...(i.categories || []), c]; });
-      });
-      fresh.accounts.forEach((a) => {
-        if (!out.accounts.some((x) => x.id === a.id || x.email === a.email || (a.studentId && x.studentId === a.studentId))) out.accounts.push(a);
-      });
-    } catch (e) { /* демо деректерді қосу мүмкін болмады */ }
-  }
   out.students.forEach((st) => {
     if (out.accounts.some((a) => a.studentId === st.id)) return;
     const email = `${st.id}@automektep.test`;
@@ -2345,21 +2238,10 @@ document.addEventListener('keydown', (e) => {
 const authView = $('#authView');
 const portalView = $('#portalView');
 const CAT_INFO = {
-  A1: { name: 'Жеңіл мотоцикл', text: 'Көлемі 125 см³ дейінгі мотоцикл' },
   A: { name: 'Мотоцикл', text: 'Мотоцикл және мотороллер жүргізу' },
-  B1: { name: 'Үш дөңгелекті / квадроцикл', text: 'Үш дөңгелекті көліктер мен квадроцикл' },
   B: { name: 'Жеңіл көлік', text: 'Жеңіл автокөлік — ең танымал санат' },
   BE: { name: 'Жеңіл көлік + тіркеме', text: 'B санатты көлік пен тіркеме' },
-  C1: { name: 'Орташа жүк көлігі', text: 'Салмағы 3,5–7,5 тонна жүк көліктері' },
   C: { name: 'Жүк көлігі', text: 'Салмағы 3,5 тоннадан асатын жүк көліктері' },
-  C1E: { name: 'C1 + тіркеме', text: 'Орташа жүк көлігі мен тіркеме' },
-  CE: { name: 'Жүк көлігі + тіркеме', text: 'Тіркемелі ауыр жүк көліктері (фура)' },
-  D1: { name: 'Шағын автобус', text: '16 орынға дейінгі микроавтобус' },
-  D: { name: 'Автобус', text: 'Жолаушы тасымалдайтын автобустар' },
-  D1E: { name: 'D1 + тіркеме', text: 'Шағын автобус пен тіркеме' },
-  DE: { name: 'Автобус + тіркеме', text: 'Автобус пен тіркеме' },
-  Tm: { name: 'Трактор / өздігінен жүретін машина', text: 'Тракторлар мен ауыл шаруашылығы техникасы' },
-  Tb: { name: 'Трамвай / троллейбус', text: 'Трамвай мен троллейбус жүргізу' },
 };
 const PREF_TIMES = ['Таңертең (09:00–12:00)', 'Түсте (12:00–15:00)', 'Кешке (15:00–19:00)', 'Демалыс күндері'];
 const HEARD = ['Instagram', '2GIS', 'Таныс арқылы', 'Басқа'];
@@ -2440,7 +2322,7 @@ function infoSections(acc, only) {
     about: `
   <section class="pub-section" id="about">
     <div class="pub-head"><p class="pub-eyebrow">Автошкола туралы</p><h2>${esc(s.schoolName)} автомектебі</h2>
-      <p>${esc(s.schoolName)} — ${esc(s.city)} қаласындағы автомектеп. A, B және C санаттары бойынша теориялық және практикалық оқыту: тәжірибелі нұсқаушылар, техбайқаудан өткен оқу көліктері, бейнесабақтар, онлайн тесттер (4 нұсқа) және жеке кабинет.</p></div>
+      <p>${esc(s.schoolName)} — ${esc(s.city)} қаласындағы автомектеп. A, B, BE және C санаттары бойынша теориялық және практикалық оқыту: тәжірибелі нұсқаушылар, техбайқаудан өткен оқу көліктері, бейнесабақтар, онлайн тесттер (4 нұсқа) және жеке кабинет.</p></div>
     <div class="card about-box">
       <div>
         <p class="muted small" style="margin:0 0 4px">Байланыс телефоны</p>
@@ -2487,7 +2369,7 @@ function infoSections(acc, only) {
     <div class="steps">${[
       ['Өтінім қалдыру', 'Сайтта тіркеліп, жеке кабинет ашасыз. Әкімші сізбен хабарласып, шарт жасайды.'],
       ['Теориялық курс', 'Жол жүру ережелері, жол белгілері және қауіпсіздік негіздері.'],
-      ['Практикалық сабақтар', `Нұсқаушымен оқу көлігінде: A — ${req('A')}, B — ${req('B')}, C — ${req('C')} сабақ.`],
+      ['Практикалық сабақтар', `Нұсқаушымен оқу көлігінде: A — ${req('A')}, B — ${req('B')}, BE — ${req('BE')}, C — ${req('C')} сабақ.`],
       ['Ішкі емтихан', 'Алдымен теория, міндетті практикадан кейін — жүргізу.'],
       ['Мемлекеттік емтихан', 'Теория мен практика. Оқу ақысы толық төленгеннен кейін жіберіледі.'],
       ['Жүргізуші куәлігі', 'Мемлекеттік практикалық емтиханнан өткен соң куәлік алуға дайынсыз.'],
@@ -2514,7 +2396,7 @@ function infoSections(acc, only) {
   <section class="pub-section alt" id="faq">
     <div class="pub-head"><p class="pub-eyebrow">Сұрақтар</p><h2>Жиі қойылатын сұрақтар</h2></div>
     <div class="faq">${[
-      ['Оқу қанша уақытқа созылады?', `Бұл сіздің кестеңізге байланысты. Міндетті практикалық сабақ саны: A — ${req('A')}, B — ${req('B')}, C — ${req('C')}.`],
+      ['Оқу қанша уақытқа созылады?', `Бұл сіздің кестеңізге байланысты. Міндетті практикалық сабақ саны: A — ${req('A')}, B — ${req('B')}, BE — ${req('BE')}, C — ${req('C')}.`],
       ['Бөліп төлеуге бола ма?', 'Иә. Алғашқы төлемнен кейін практикаға жазыла аласыз, ал мемлекеттік емтиханға дейін ақы толық төленуі керек.'],
       ['Сабақ уақытын өзім таңдай аламын ба?', 'Иә. Жеке кабинетте нұсқаушыңыздың бос уақытына өзіңіз жазыласыз — жүйе бос емес уақытқа жазылуға жол бермейді.'],
       ['Емтиханға қашан жіберіледі?', 'Ретпен: ішкі теория → ішкі практика → мемлекеттік теория → мемлекеттік практика. Әр кезең алдыңғысынан өткен соң ашылады.'],
@@ -2846,7 +2728,7 @@ const QUIZ_BASE = [
   { q: 'Алкогольдік мас күйде көлік жүргізуге бола ма?', o: ['Аз мөлшерде болады', 'Жоқ, тыйым салынған', 'Тек түнде болады', 'Қысқа қашықтыққа болады'], a: 1, e: 'Мас күйде көлік жүргізуге қатаң тыйым салынған.' },
 ];
 
-// 4 нұсқа × 20 сұрақ. Формат: 'сұрақ|жауап1|жауап2|...|дұрыс жауаптың нөмірі'
+// 4 нұсқа × 40 сұрақ. Формат: 'сұрақ|жауап1|жауап2|...|дұрыс жауаптың нөмірі'
 const QV_RAW = [
   [ // 1-нұсқа (алғашқы 10 сұрақ — QUIZ_BASE)
     'Көлік жүргізгенде жүргізуші куәлігі мен көлік тіркеу куәлігі қашан қасыңызда болуы керек?|Тек қала сыртында|Көлік жүргізгенде әрқашан|Тек тексеру кезінде|Тек түнде|2',
@@ -2859,6 +2741,26 @@ const QV_RAW = [
     'Қызыл жиекті дөңгелек белгілер қандай топқа жатады?|Ескерту белгілері|Тыйым салу белгілері|Міндеттеу белгілері|Ақпараттық белгілер|2',
     'Тұман кезінде жүргізуші не істеуі керек?|Жылдамдықты арттыру|Жылдамдықты азайтып, жарық құралдарын қосу|Қашықтықты қысқарту|Апаттық сигналмен жүру|2',
     'Жолда шаршау сезілсе, не істеу керек?|Терезені ашып жүре беру|Тоқтап, демалу|Жылдамдықты арттыру|Музыканы қатты қосу|2',
+    'Көлік жүргізушісінің міндеттеріне не жатады?|Көлікті жүргізуші куәлігінсіз басқару|Көлік құралын техникалық ақауларсыз ұстау және құжаттарды өзімен бірге алып жүру|Жол ережелерін тек қала сыртында сақтау|Жолаушылардың орнына жүргізу|2',
+    'Түнде жолды жарықтандыру үшін қандай құрылғы қолданылады?|Апаттық сигнал|Жақын немесе алыс жарық|Тек ішкі жарық|Тек бұрылыс көрсеткіші|2',
+    'Алыс жарықты қашан қолдануға болады?|Қарсы көлік болмағанда және жол жарықтандырылмағанда|Қала орталығында әрқашан|Жаяу жүргіншілер көп жерде|Тұрақта|1',
+    'Жақын жарықты қай уақытта қосу керек?|Түнде және көрініс нашар болғанда|Тек күндіз|Тек тұрақта|Тек жаңбыр жауғанда|1',
+    'Артқы қызыл жарықтар қашан қосылады?|Көлік тоқтағанда|Тежеу кезінде|Тек артқа жүргенде|Тек түнде|2',
+    'Бұрылыс көрсеткішін қашан қосу керек?|Бұрылудан кейін|Бұрылуға біршама бұрын және аяқталғанша|Тек қиылыста|Тек түнде|2',
+    'Жолақ ауыстыру алдында не істеу керек?|Бұрылыс көрсеткішін қосып, айналаны тексеру|Бірден жолақ ауыстыру|Дыбыстық белгі беру|Жылдамдықты арттыру|1',
+    'Көлікті тұраққа қою кезінде қол тежегішін тарту не үшін қажет?|Жанармайды үнемдеу үшін|Көліктің өздігінен жылжуын болдырмау үшін|Жылдамдықты арттыру үшін|Жарықты қосу үшін|2',
+    'Тұраққа тыйым салынатын жер?|Жаяу жүргіншілер өткелі және оған 5 м-ге дейінгі жер|Арнайы тұрақ орны|Гараж ауласы|Тұрақ белгісі бар алаң|1',
+    'Қозғалыс кезінде қауіпсіздік белдігін шешуге бола ма?|Иә, ыңғайлы болса|Жоқ, тек тоқтағаннан кейін|Тек қала сыртында|Тек жолаушыларға|2',
+    'Жолаушыларды тасымалдау кезінде не міндетті?|Олардың белдік тағуын қамтамасыз ету|Тек жүргізушінің белдік тағуы|Есіктерді ашық ұстау|Жылдамдықты арттыру|1',
+    'Жаяу жүргінші өткеліне жақындағанда не істеу керек?|Жылдамдықты арттыру|Жылдамдықты азайтып, жаяу жүргіншілерге жол беруге дайын болу|Дыбыстық белгі беру|Жолақ ауыстыру|2',
+    'Темір жол өткелінен өту алдында не істеу керек?|Жылдамдықты арттыру|Тоқтап, пойыздың жоқтығына көз жеткізу|Дыбыстық белгі беру|Апаттық сигналды қосу|2',
+    'Темір жол өткелінде озуға бола ма?|Иә, бос болса|Жоқ, тыйым салынған|Тек күндіз|Тек мотоциклмен|2',
+    'Қарсы бағыттағы жолаққа шығуға қашан рұқсат етіледі?|Тұтас сызық болса|Озу рұқсат етілген және қауіпсіз болса|Қиылыста әрқашан|Жаяу жүргінші өткелінде|2',
+    'Озу кезінде қандай қашықтық қауіпсіз?|Ең аз қашықтық|Озуға жеткілікті және қауіпсіз арақашықтық|Көлікке тиіп кететіндей|1 метр|2',
+    'Көлік қозғалысына кедергі жасайтын ақау табылса, не істеу керек?|Жүре беру|Қауіпсіз жерге тоқтап, ақауды жою|Жылдамдықты арттыру|Жолаушыларға айтпау|2',
+    'Жолдағы қар, мұз кезінде не істеу керек?|Жылдамдықты арттыру|Жылдамдықты азайтып, тежеу қашықтығын ұлғайту|Күрт тежеу|Жолақ ауыстыру|2',
+    'Шаршаған кезде ұзақ жолға шығуға бола ма?|Болады|Болмайды, демалып алу керек|Тек кофе ішіп|Тек түнде|2',
+    'Жол-көлік оқиғасы кезінде зардап шеккендерге көмек көрсету міндетті ме?|Міндетті емес|Иә, мүмкіндігінше бірінші көмек көрсету керек|Тек полиция келгенше күту|Тек куәгерлерге|2',
   ],
   [ // 2-нұсқа
     'Темір жол өткелінде шлагбаум түсіріліп тұрса, не істеу керек?|Айналып өту|Шлагбаум көтерілгенше күту|Баяулатып өту|Дыбыстық белгі беру|2',
@@ -2881,6 +2783,26 @@ const QV_RAW = [
     'Көлік тіркеу куәлігінсіз жүргізуге бола ма?|Болады|Болмайды|Тек қалада|Тек күндіз|2',
     'Қозғалыс реттеушісі қолын жоғары көтерсе, бұл нені білдіреді?|Барлық бағытқа қозғалысқа тыйым|Тек оңға бұрылуға болады|Тек тура жүруге болады|Қозғалыс еркін|1',
     'Реттеушінің сигналы мен бағдаршам қайшы келсе, кімге бағыну керек?|Бағдаршамға|Жол белгісіне|Қозғалыс реттеушісіне|Өз қалауыңызға|3',
+    'Қызыл жиекті дөңгелек белгі нені білдіреді?|Тыйым салу немесе шектеу|Міндеттеу|Ақпараттық|Ескерту|1',
+    'Көк дөңгелек белгі нені білдіреді?|Тыйым салу|Міндеттеу|Ескерту|Ақпараттық|2',
+    'Үшбұрышты қызыл жиекті белгілер қандай топқа жатады?|Ескерту|Тыйым салу|Міндеттеу|Ақпараттық|1',
+    '«Басты жол» белгісі қай топқа жатады?|Ескерту|Басымдық|Тыйым салу|Міндеттеу|2',
+    'Тұтас бөлгіш сызықты кесіп өтуге бола ма?|Иә|Жоқ, тек ерекше рұқсат етілген жерлерде|Әрқашан|Тек түнде|2',
+    'Үзік сызық нені білдіреді?|Жолақ ауыстыруға рұқсат|Тыйым|Аялдау орны|Басты жол|1',
+    'Сары тұтас сызық нені білдіреді?|Тұраққа рұқсат|Қарсы бағыттағы қозғалысты ажыратады және кесіп өтуге тыйым салынады|Жолақ ауыстыруға рұқсат|Жаяу жүргінші өткелі|2',
+    'Бағдаршамның жасыл сигналы жанғанда не істеу керек?|Бірден газ басу|Қауіпсіздікке көз жеткізіп, қозғалу|Тоқтау|Артқа жүру|2',
+    'Бағдаршамның сары сигналы нені білдіреді?|Қозғалысқа рұқсат|Тоқтауға дайындалу, егер қауіпсіз тоқтау мүмкін болса|Артқа жүру|Жылдамдықты арттыру|2',
+    'Реттеушінің қолы бүйірге созылса, бұл нені білдіреді?|Қозғалысқа тыйым|Кеудесі мен арқасы жақтан қозғалысқа рұқсат|Тек оңға бұрылу|Тек солға бұрылу|2',
+    'Реттеушінің сигналдары бағдаршамнан басым ба?|Жоқ|Иә|Тек түнде|Тек қиылыста|2',
+    'Жаяу жүргінші өткелінде тұраққа бола ма?|Иә|Жоқ|Тек қысқа уақытқа|Тек түнде|2',
+    'Автобус аялдамасында тұраққа бола ма?|Иә|Жоқ, егер арнайы рұқсат болмаса|Тек күндіз|Тек 5 минут|2',
+    'Елді мекендегі жылдамдық шегі (белгі болмаса)?|40 км/сағ|60 км/сағ|80 км/сағ|90 км/сағ|2',
+    'Жаңбыр кезінде жылдамдықты қалай таңдау керек?|Шекті жылдамдықпен|Жол жағдайына сай азайтып, қауіпсіз жылдамдықпен|Арттыру|Өзгеріссіз|2',
+    'Түнде қарсы көлікке жақындағанда алыс жарықты не істеу керек?|Қосулы қалдыру|Жақын жарыққа ауыстыру|Өшіру|Жыпылықтату|2',
+    'Шиналардың протекторының тозуы неге әсер етеді?|Тек сыртқы түріне|Тежелу мен басқарылу қауіпсіздігіне|Жанармай бағасына|Тек жылдамдыққа|2',
+    'ABS жүйесі не істейді?|Тежеу кезінде дөңгелектердің бұғатталуын болдырмайды|Қозғалтқыш қуатын арттырады|Жанармайды үнемдейді|Жарықты қосады|1',
+    'Апаттық тоқтау белгісін қашан қою керек?|Әр тоқтағанда|Мәжбүрлі тоқтау кезінде|Тұрақта|Жаяу жүргінші өткелінде|2',
+    'Жол-көлік оқиғасында бірінші кезекте кімге көмек көрсету керек?|Көлікке|Өміріне қауіп төнген зардап шегушіге|Куәгерге|Полицияға|2',
   ],
   [ // 3-нұсқа
     'Жолға шығар алдында нені тексеру керек?|Тек радионы|Шина, жарық құралдары, тежегіш, шыны тазалағышты|Тек жанармайды|Ештеңені|2',
@@ -2903,6 +2825,26 @@ const QV_RAW = [
     'Шаршаған жүргізушінің реакциясы қалай өзгереді?|Жақсарады|Баяулайды|Өзгермейді|Тездейді|2',
     'Мас күйдегі адамға көлік жүргізуге беруге бола ма?|Болады|Тыйым салынады|Жақын жолға болады|Түнде болады|2',
     'Темір жол өткелінде қызыл жыпылықтайтын сигнал жанса, не істеу керек?|Өтуге болады|Өтуге тыйым салынады|Баяулатып өтуге болады|Жылдамдатып өтуге болады|2',
+    'Қозғалыс басталмас бұрын жүргізуші не істеуі керек?|Белдік тағып, айналаны тексеру|Бірден газ басу|Дыбыстық белгі беру|Радионы қосу|1',
+    'Артқа жүру кезінде қандай ереже сақталады?|Жылдамдықты арттыру|Артқы көрініс пен айналаға көз жеткізу, қауіпсіздік|Тек дыбыстық белгі|Есікті ашу|2',
+    'Бұрылу кезінде жолаушыларға қандай қауіп бар?|Ешқандай|Инерция әсерінен орнынан жылжу|Жанармай азаюы|Жарықтың өшуі|2',
+    'Қиылыста оңға бұрылу кезінде кімге жол беру керек?|Ешкімге|Жаяу жүргіншілерге және қозғалыстағы көліктерге|Тек мотоциклшілерге|Тек автобустарға|2',
+    'Солға бұрылу кезінде қарсы бағыттағы көліктерге қалай әрекет ету керек?|Жол бермеу|Жол беру|Дыбыстық белгі беру|Жылдамдықты арттыру|2',
+    'Айналмалы қиылысқа кіргенде кімге жол беру керек?|Ешкімге|Айналмалы қозғалыстағы көліктерге|Тек жүк көліктеріне|Тек трамвайға|2',
+    'Айналмалы қиылыстан шығарда бұрылыс көрсеткішін қосу керек пе?|Жоқ|Иә, шығатын бағытқа|Тек түнде|Тек қала сыртында|2',
+    'Трамвай жолында тұраққа бола ма?|Иә|Жоқ|Тек қысқа уақытқа|Тек түнде|2',
+    'Жаяу жүргіншілер өткелінде озуға бола ма?|Иә|Жоқ|Тек баяу болса|Тек мотоциклмен|2',
+    'Көлік тоқтағанда есікті қалай ашу керек?|Тез|Артқы жағындағы көліктер мен велосипедшілерді тексеріп|Дыбыстық белгі беріп|Ешкімге қарамай|2',
+    'Балалар көлікте қалай тасымалданады?|Белдіксіз|Жасы мен бойына сай бала ұстағышпен|Алдыңғы орындықта құшақта|Артқы орындықта еркін|2',
+    'Мотоцикл жүргізушісіне дулыға міндетті ме?|Тек қала сыртында|Иә, әрқашан|Тек түнде|Міндетті емес|2',
+    'Тіркемелі көлікті жүргізу кезінде не ескеру керек?|Тіркеменің жоқтығын|Тіркеменің ұзындығы мен инерциясын|Тек жанармайды|Тек жарықты|2',
+    'Тіркеменің жүктемесі қалай бөлінуі керек?|Бір жаққа ауыртпай, біркелкі|Тек артқа|Тек алдыға|Кез келгендей|1',
+    'Жүк көлігінде жүктің биіктігі шектеле ме?|Жоқ|Иә, белгіленген шектеулерге сай|Тек түнде|Тек қалада|2',
+    'Ұзын туннельде не істеу керек?|Жарықты өшіру|Жақын жарықты қосып, қашықтықты сақтау|Жылдамдықты арттыру|Озу|2',
+    'Көпірде озуға бола ма?|Иә|Егер көпір тар болса, тыйым салынады|Тек түнде|Тек мотоциклмен|2',
+    'Жануарлар жолға шықса, не істеу керек?|Жылдамдықты арттыру|Жылдамдықты азайтып, қауіпсіз тоқтауға дайын болу|Дыбыстық белгі беру|Озу|2',
+    'Жолдағы май немесе мұз кезінде тежеу қалай болуы керек?|Күрт|Бірте-бірте және алдын ала|Тек қол тежегішімен|Тежеусіз|2',
+    'Көлікті ұзақ тұраққа қалдырғанда не істеу керек?|Есікті ашық қалдыру|Қол тежегішін тартып, көлікті құлыптау|Кілтті ішінде қалдыру|Жарықты қосулы қалдыру|2',
   ],
   [ // 4-нұсқа
     'Озып болғаннан кейін не істеу керек?|Өз жолағыңа қауіпсіз оралу|Қарсы жолақта қалу|Күрт тежеу|Жолақты кесіп өту|1',
@@ -2925,6 +2867,26 @@ const QV_RAW = [
     'Тар жерде кедергі жағындағы көлік не істеуі керек?|Жол беруі керек|Жылдамдауы керек|Дыбыстық белгі беруі керек|Тоқтамауы керек|1',
     'Үзік бөлгіш сызықты қашан кесіп өтуге болады?|Қауіпсіз болса, ережеге сай|Тыйым салынған|Тек түнде|Тек жылдам жүргенде|1',
     'Көлікті тоқтату сигналын кім бере алады?|Жол полициясының қызметкері|Кез келген жүргізуші|Жаяу жүргінші|Жолаушы|1',
+    'Жол-көлік оқиғасы болғанда ең алдымен не істеу керек?|Көлікті жылжыту|Апаттық сигнал қосып, қауіпсіздікті қамтамасыз ету|Оқиға орнынан кету|Дыбыстық белгі беру|2',
+    'Жедел жәрдем шақыру нөмірі?|101|102|103|104|3',
+    'Өрт сөндіру қызметінің нөмірі?|101|102|103|104|1',
+    'Полиция шақыру нөмірі?|101|102|103|104|2',
+    'Қан кетуін тоқтату үшін не істеу керек?|Жараға су құю|Таза дәке немесе қысымды таңғыш қою|Жараны үйкеу|Ештеңе істемеу|2',
+    'Зардап шегуші есінен танып қалса, не істеу керек?|Отырғызу|Жатқызып, тыныс алуын тексеру|Су ішкізу|Жүргізу|2',
+    'Көлікте өрт шықса, не істеу керек?|Жүре беру|Тоқтап, қозғалтқышты өшіріп, өрт сөндіргішті қолдану|Терезені ашу|Жылдамдықты арттыру|2',
+    'Міндетті сақтандыру полисі қажет пе?|Жоқ|Иә, көлік жүргізу кезінде|Тек қала сыртында|Тек жүк көлігінде|2',
+    'Көлік тіркеу куәлігі қашан қажет?|Тек сатып алу кезінде|Көлік жүргізу кезінде әрқашан|Тек техбайқауда|Тек түнде|2',
+    'Техникалық байқаудан өтпеген көлікпен жүруге бола ма?|Иә|Жоқ|Тек қысқа қашықтыққа|Тек түнде|2',
+    'Тежегіш жүйесінің ақауымен жүруге бола ма?|Иә|Жоқ|Тек баяу|Тек қалада|2',
+    'Жанармай құю кезінде қозғалтқышты өшіру керек пе?|Жоқ|Иә|Тек қыста|Тек түнде|2',
+    'Шина қысымын қашан тексеру керек?|Айына бір рет немесе сапар алдында|Жылына бір рет|Тек қыста|Ешқашан|1',
+    'Қысқы шиналарды қашан қолдану керек?|Жазда|Суық ауа райында|Тек қала сыртында|Тек түнде|2',
+    'Көліктің ішіндегі құжаттарға не жатады?|Тек жүргізуші куәлігі|Жүргізуші куәлігі, тіркеу куәлігі, сақтандыру полисі|Тек сақтандыру|Тек техбайқау|2',
+    'Жол полициясының тоқтату сигналын көргенде не істеу керек?|Жылдамдықты арттыру|Қауіпсіз жерге тоқтау|Елемеу|Артқа жүру|2',
+    'Жол ережесін бұзғаны үшін жауапкершілік қандай?|Тек ескерту|Әкімшілік немесе қылмыстық жауапкершілік|Ешқандай|Тек айыппұл жоқ|2',
+    'Экологиялық қауіпсіз жүргізу дегеніміз не?|Жылдамдықты арттыру|Жанармайды үнемдеп, біркелкі жүру|Күрт тежеу|Қозғалтқышты босқа қосу|2',
+    'Көлікті ұзақ уақыт қосулы қалдыру неге зиян?|Ешқандай зиян жоқ|Жанармай шығыны мен қоршаған ортаға зиян|Тек дыбыс|Тек жарық|2',
+    'Жолаушылардың қауіпсіздігі үшін не маңызды?|Жылдамдықты арттыру|Белдік тағу және есіктердің жабық болуы|Терезені ашу|Музыканы қатты қосу|2',
   ],
 ];
 const parseQ = (s) => { const p = s.split('|'); const a = Number(p.pop()) - 1; const q = p.shift(); return { q, o: p, a, e: '' }; };

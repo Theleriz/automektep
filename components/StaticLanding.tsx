@@ -74,11 +74,11 @@ export default function StaticLanding() {
           </p>
           <div className="pub-stats">
             <div>
-              <b>31</b>
+              <b>1</b>
               <span>түлек</span>
             </div>
             <div>
-              <b>97%</b>
+              <b>67%</b>
               <span>мемлекеттік емтиханнан өтті</span>
             </div>
             <div>
@@ -86,7 +86,7 @@ export default function StaticLanding() {
               <span>нұсқаушы</span>
             </div>
             <div>
-              <b>23</b>
+              <b>5</b>
               <span>оқу көлігі</span>
             </div>
           </div>
@@ -139,7 +139,7 @@ export default function StaticLanding() {
           <p className="pub-eyebrow">Автошкола туралы</p>
           <h2>{SITE.brand} автомектебі</h2>
           <p>
-            {SITE.brand} — {SITE.city} қаласындағы автомектеп. A, B және C санаттары бойынша теориялық және практикалық оқыту:
+            {SITE.brand} — {SITE.city} қаласындағы автомектеп. A, B, BE және C санаттары бойынша теориялық және практикалық оқыту:
             тәжірибелі нұсқаушылар, техбайқаудан өткен оқу көліктері, бейнесабақтар, онлайн тесттер және жеке кабинет.
           </p>
         </div>
@@ -252,13 +252,10 @@ export default function StaticLanding() {
           </h3>
           <div className="chips">
             <span className="chip">Toyota Corolla · B</span>
-            <span className="chip">Hyundai Accent · B</span>
-            <span className="chip">Kia Rio · B</span>
-            <span className="chip">Honda CB500 · A</span>
-            <span className="chip">КамАЗ 65115 · C</span>
-            <span className="chip">Mercedes-Benz Sprinter · D1</span>
-            <span className="chip">Higer KLQ6129 · D</span>
-            <span className="chip">МТЗ-82 · Tm</span>
+            <span className="chip">Kawasaki Ninja 400 · A</span>
+            <span className="chip">КамАЗ 4308 · C</span>
+            <span className="chip">Toyota Camry + тіркеме · BE</span>
+            <span className="chip">Lada Granta · B</span>
           </div>
         </div>
       </section>

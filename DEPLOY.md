@@ -80,7 +80,7 @@ GitHub Desktop / VS Code арқылы push жасаңыз.
 | Тексеру | Күтілетін нәтиже |
 | --- | --- |
 | Басты бет ашылады | Лендинг: hero, бағалар, нұсқауыштар, FAQ |
-| `Ctrl/Cmd + U` → `<title>` | «AutoMektep — Алматыдағы автомектеп: A, B, C санаттары» |
+| `Ctrl/Cmd + U` → `<title>` | «AutoMektep — Алматыдағы автомектеп: A, B, BE, C санаттары» |
 | `/robots.txt`, `/sitemap.xml` | 200 жауап, домен дұрыс |
 | `/kez-kelgen-bet` | AutoMektep стиліндегі **404** беті |
 | Кіру → «Толтыру» → Кіру | Әкімші панелі ашылады (`admin@automektep.test` / `Admin2026!`) |

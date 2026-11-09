@@ -6,7 +6,7 @@ import LegacyApp from '@/components/LegacyApp';
 import StaticLanding from '@/components/StaticLanding';
 
 export const metadata: Metadata = {
-  title: { absolute: 'AutoMektep — Алматыдағы автомектеп: A, B, C санаттары' },
+  title: { absolute: 'AutoMektep — Алматыдағы автомектеп: A, B, BE, C санаттары' },
 };
 
 export default function Page() {

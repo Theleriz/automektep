@@ -1,0 +1,30 @@
+# Әр push/PR кезінде жоба жиналатынын тексереді.
+# Vercel деплой жасайды, ал бұл workflow — қауіпсіздік белдігі.
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: next build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Тәуелділіктерді орнату
+        run: npm ci
+
+      - name: Статикалық жинақ
+        run: npm run build
+
+      - name: Жинақ бар ма?
+        run: test -f out/index.html && echo "out/index.html ✓"

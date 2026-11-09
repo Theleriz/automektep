@@ -1,0 +1,22 @@
+# тәуелділіктер
+/node_modules
+/.pnp
+.pnp.js
+
+# next.js
+/.next/
+/out/
+/build
+# next-env.d.ts — Next.js қайта жасайды, бірақ TypeScript үшін репозиторийде қалдыруға болады
+*.tsbuildinfo
+
+# орта айнымалылары
+.env
+.env*.local
+
+# жүйелік файлдар
+.DS_Store
+Thumbs.db
+npm-debug.log*
+yarn-error.log*
+.vercel

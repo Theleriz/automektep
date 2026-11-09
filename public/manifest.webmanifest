@@ -1,0 +1,15 @@
+{
+  "name": "AutoMektep — автомектепті басқару жүйесі",
+  "short_name": "AutoMektep",
+  "description": "Теория, практика, емтихандар және төлемдер — оқушының жеке кабинетінде.",
+  "lang": "kk",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F4F6FB",
+  "theme_color": "#4361EE",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
